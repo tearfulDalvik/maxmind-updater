@@ -14,7 +14,7 @@ elif [[ ${result} != 0 ]]; then
 	exit 1
 else
 	echo "Integration testing update..."
-	ls '${data_dir}'
+	ls vendor/
 	country_code=$(
 		python -c "import GeoIP; print GeoIP.open('${data_dir}/GeoLite2-City.mmdb', GeoIP.GEOIP_STANDARD).record_by_addr('8.8.8.8').get('country_code')"
 	)
