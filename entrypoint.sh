@@ -2,7 +2,7 @@
 
 data_dir=${DATA_DIR:-data}
 conf_dir=${CONF_DIR:-conf}
-output=$(geoipupdate -v -f ${conf_dir}/GeoIp.conf -d ${data_dir} 2>&1)
+output=$(geoipupdate -v -f ${conf_dir}/GeoIP.conf -d ${data_dir} 2>&1)
 result=$?
 
 if [[ "${output}" == *"No new updates available"* ]]; then
