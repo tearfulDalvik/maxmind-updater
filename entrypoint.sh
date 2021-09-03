@@ -2,6 +2,8 @@
 
 data_dir=${DATA_DIR:-data}
 conf_dir=${CONF_DIR:-conf}
+ls
+pwd
 output=$(geoipupdate -v -f ${conf_dir}/GeoIP.conf -d ${data_dir} 2>&1)
 result=$?
 
