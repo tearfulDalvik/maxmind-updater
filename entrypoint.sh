@@ -15,7 +15,7 @@ elif [[ ${result} != 0 ]]; then
 else
 	echo "Integration testing update..."
 	country_code=$(
-		python -c "import GeoIP; print GeoIP.open('${data_dir}/GeoIPCity.dat', GeoIP.GEOIP_STANDARD).record_by_addr('8.8.8.8').get('country_code')"
+		python -c "import GeoIP; print GeoIP.open('${data_dir}/GeoLite2-City.mmdb', GeoIP.GEOIP_STANDARD).record_by_addr('8.8.8.8').get('country_code')"
 	)
 
 	if [[ "${country_code}" != 'US' ]]; then
