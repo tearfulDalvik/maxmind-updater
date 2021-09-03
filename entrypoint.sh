@@ -2,8 +2,6 @@
 
 data_dir=${DATA_DIR:-data}
 conf_dir=${CONF_DIR:-conf}
-ls
-pwd
 output=$(geoipupdate -v -f ${conf_dir}/GeoIP.conf -d ${data_dir} 2>&1)
 result=$?
 
@@ -16,6 +14,7 @@ elif [[ ${result} != 0 ]]; then
 	exit 1
 else
 	echo "Integration testing update..."
+	ls '${data_dir}'
 	country_code=$(
 		python -c "import GeoIP; print GeoIP.open('${data_dir}/GeoLite2-City.mmdb', GeoIP.GEOIP_STANDARD).record_by_addr('8.8.8.8').get('country_code')"
 	)
