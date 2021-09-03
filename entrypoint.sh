@@ -13,16 +13,5 @@ elif [[ ${result} != 0 ]]; then
 	echo "${output}"	
 	exit 1
 else
-	echo "Integration testing update..."
-	ls vendor/
-	country_code=$(
-		python -c "import GeoIP; print GeoIP.open('${data_dir}/GeoLite2-City.mmdb', GeoIP.GEOIP_STANDARD).record_by_addr('8.8.8.8').get('country_code')"
-	)
-
-	if [[ "${country_code}" != 'US' ]]; then
-		echo "👎 8.8.8.8 country test returned unexpected country '${country_code}'"
-		exit 1
-	else
-		echo "👍 GeoIP Database updated safely."
-	fi
+	echo "👍 GeoIP Database updated safely."
 fi
